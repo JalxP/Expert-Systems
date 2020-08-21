@@ -1,0 +1,14 @@
+package com.sample
+
+import model.Patient;
+ 
+rule "Elegível para Estudo"
+    when
+    	$p : Patient(age >= 18, (OMSIndicator == 0 || OMSIndicator == 1),
+    	(carcinomaEspino || carcinomaIndif || adenoI || adenoII), (cancerStage == 2 || cancerStage == 3),
+    	borderSup > 3f, consent, !pregnant, !lactant, ! previousRadio,
+    	neutroCount < 1.5f, plateletsCount < 100f, biliCount > 1.5f,
+    	!activeInfection)
+    then
+    	System.out.println("Aprovado: " + $p.getName());
+end
