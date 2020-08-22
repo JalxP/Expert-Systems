@@ -1,11 +1,73 @@
 package com.sample
 
 import model.Patient;
+import model.MedicalChart;
  
-rule "Verificar Idade"
+rule "Idade"
 	when
 		$p: Patient(accepted, age < 18);
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " é menor de idade.");
+end
+
+rule "Indicador OMS"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), OMSIndicator != 0 && OMSIndicator != 1);
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não tem o indicador de desempenho requerido.");
+end
+
+rule "Diagnóstico"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), !carcinomaE, !carcinomaInd, !adenocarcinomaI, !adenocarcinomaII);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não tem o diagnóstico requerido (Carcinomas, Adenocarcinomas (I ou II).");
+end
+
+rule "Doença Clinica"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), cancerStage != 2, cancerStage != 3);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não tem uma doença clínica num dos estágios requeridos (II ou III).");
+end
+
+rule "Distância do Tumor"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), distanceToUpperBorder < 3);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não tem uma distância entre a borda superior do tumor abaixo do esfincter superior do esófago requerida (pelo menos 3cm).");
+end
+
+rule "Consentimento Informado"
+	when
+		$p: Patient(accepted, !consent);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não tem um termo de consentimento informado.");
+end
+
+rule "Mulheres Grávidas ou Lactantes"
+	when
+		$p: Patient(accepted, pregnant || lactant);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " tem uma gravidez a decorrer ou está lactante.");
+end
+
+rule "Radioterapia Prévia"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), previousRadiotherapy);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " realizou radioterapia torácica previamente.");
 end

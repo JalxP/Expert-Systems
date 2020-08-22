@@ -232,13 +232,16 @@ public class ViewController implements Initializable  {
 		int age;
 		try {
 			age = Integer.parseInt(textFieldAge.getText());
-			if (age < 0) throw new NumberFormatException();
+			if (age < 0) {
+				throw new NumberFormatException();
+			}
 			else {
 				textFieldAge.setStyle("-fx-text-box-border: #000000; -fx-border-radius: 3px");
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Age
 			textFieldAge.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		int indicatorOMS;
@@ -251,6 +254,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid OMS indicator
 			textFieldOMS.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 
 		int cancerStage;
@@ -263,6 +267,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid cancer stage
 			textFieldCancerStage.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float bordaSup;
@@ -275,6 +280,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Superior Border
 			textFieldBordaSup.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float neutroCount;
@@ -287,6 +293,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Neutro Count
 			textFieldNeutro.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float plaquetasCount;
@@ -299,6 +306,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Plaquetas Count
 			textFieldPlaquetas.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float biliCount;
@@ -311,6 +319,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Bili Count
 			textFieldBili.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float creatCount;
@@ -323,6 +332,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Creat Count
 			textFieldCreat.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		float pulmonaryFunction;
@@ -335,6 +345,7 @@ public class ViewController implements Initializable  {
 		} catch (NumberFormatException e) {
 			// Invalid Superior Border
 			textFieldFuncaoPulm.setStyle("-fx-text-box-border: #FF0000;");
+			invalid = true;
 		}
 		
 		
