@@ -1,0 +1,11 @@
+package com.sample
+
+import model.Patient;
+ 
+rule "Verificar Idade"
+	when
+		$p: Patient(accepted, age < 18);
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " é menor de idade.");
+end

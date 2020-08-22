@@ -7,30 +7,28 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import model.Dados;
+import model.MedicalChart;
 import model.Patient;
 
 public class ViewController implements Initializable  {
 	private Dados dados;
 	
-	/* Tabs */
-	@FXML
-	private Tab tabInsertData;
-	@FXML
-	private Tab tabResults;
-	
 	/* Labels */
 	@FXML
 	private Label labelInfo;
+	@FXML
+	private Label labelResults;
 
 	/* Buttons */
 	@FXML
@@ -169,9 +167,8 @@ public class ViewController implements Initializable  {
 		    }
 		};
 		buttonAdd.disableProperty().bind(bb);
-		
 	}
-	
+
 	private void addPatient() {
 		if (checkUserInput()) {
 			
@@ -200,12 +197,21 @@ public class ViewController implements Initializable  {
 			float pulmonaryFunction = Float.parseFloat(textFieldFuncaoPulm.getText());
 			boolean activeInfection = checkBoxInfection.isSelected();
 			
-			Patient p = new Patient(name, age, gender, lactant, pregnant, indicatorOMS,
-					carciEspino, carciIndif, adenoI, adenoII, consent, previousRadio,
-					cancerStage, bordaSup, neutroCount, plaquetasCount, biliCount,
-					creatCount, pulmonaryFunction, activeInfection);
+			Patient p = new Patient(name, age, gender, lactant, pregnant, consent);
+			MedicalChart m = new MedicalChart(p.getPatientID(), indicatorOMS, carciEspino, carciIndif, adenoI, adenoII, cancerStage, previousRadio,
+					bordaSup, pulmonaryFunction, activeInfection, neutroCount, plaquetasCount, biliCount, creatCount);
 			
-			dados.addPatient(p);
+			
+			// labelResults.textProperty().bind(Bindings.convert(p.getResultsProperty()));
+			p.getResultsProperty().addListener(new ChangeListener<String>() {
+
+	            @Override
+	            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+	                labelResults.setText(newValue);
+	            }
+	        });
+			
+			dados.add(p, m);
 		}
 	}
 

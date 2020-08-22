@@ -8,10 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefHeight="440.0" prefWidth="654.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -40,94 +37,88 @@
         </Menu>
       </menus>
     </MenuBar>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-        <tabs>
-          <Tab fx:id="tabInsertData" text="Insert Data">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0">
-                     <children>
-                        <GridPane alignment="TOP_CENTER" layoutX="37.0" layoutY="37.0" nodeOrientation="LEFT_TO_RIGHT">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="153.3333282470703" />
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="135.0" minWidth="0.0" prefWidth="119.66667175292969" />
-                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="237.0" minWidth="0.0" prefWidth="208.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="87.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label fx:id="labelName" alignment="CENTER" text="Nome" />
-                              <TextField fx:id="textFieldName" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" />
-                              <Label fx:id="labelAge" text="Idade" GridPane.rowIndex="1" />
-                              <Label fx:id="labelOMS" text="Identificador OMS" GridPane.rowIndex="5" />
-                              <TextField fx:id="textFieldAge" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <TextField fx:id="textFieldOMS" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label fx:id="labelCarcinomaEspinocelular" text="Carcinoma Espinocelular" GridPane.rowIndex="6" />
-                              <Label fx:id="labelCarcinomaIndiferenciado" text="Carcinoma Indiferenciado" GridPane.rowIndex="7" />
-                              <Label fx:id="labelAdenoSiewertI" text="Adenocarcinoma (Siewert I)" GridPane.rowIndex="8" />
-                              <Label fx:id="labelAdenoSiewertII" text="Adenocarcinoma (Siewert II)" GridPane.rowIndex="9" />
-                              <Label fx:id="labelGender" text="Género" GridPane.rowIndex="2" />
-                              <Label fx:id="labelLactant" text="Lactante" GridPane.rowIndex="3" />
-                              <CheckBox fx:id="checkBoxLactant" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="labelPreviousRadiotherapy" prefHeight="17.0" prefWidth="152.0" text="Radioterapia Torácica Prévia" GridPane.columnIndex="2" />
-                              <CheckBox fx:id="checkBoxPreviousRadiotherapy" mnemonicParsing="false" GridPane.columnIndex="3" />
-                              <HBox fx:id="hBoxGender" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <children>
-                                    <RadioButton fx:id="radioMale" mnemonicParsing="false" text="M" />
-                                    <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="F" />
-                                 </children>
-                              </HBox>
-                              <Label fx:id="labelPregnant" text="Gravidez" GridPane.rowIndex="4" />
-                              <CheckBox fx:id="checkBoxPregnant" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <RadioButton fx:id="radioCarcinomaEspinocelular" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <RadioButton fx:id="radioCarcinomaIndiferenciado" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                              <RadioButton fx:id="radioAdenoSiewertI" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                              <RadioButton fx:id="radioAdenoSiewertII" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                              <Label fx:id="labelCancerStage" text="Estágio do Cancro" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField fx:id="textFieldCancerStage" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <Label fx:id="labelBordaSup" text="Borda Superior Tumor" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <TextField fx:id="textFieldBordaSup" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <Label fx:id="labelNeutro" text="Contagem Neutrófilos" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <Label fx:id="labelPlaquetas" text="Contagem Plaquetas" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                              <Label fx:id="labelBili" text="Contagem Biliburrina" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <TextField fx:id="textFieldNeutro" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <TextField fx:id="textFieldPlaquetas" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                              <TextField fx:id="textFieldBili" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                              <Label fx:id="labelCreat" text="Contagem Creatinina" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                              <TextField fx:id="textFieldCreat" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-                              <Label fx:id="labelFuncaoPulm" text="Função Pulmonar (L)" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                              <TextField fx:id="textFieldFuncaoPulm" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                              <Label fx:id="labelInfection" text="Infeção Ativa" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                              <CheckBox fx:id="checkBoxInfection" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-                              <Label fx:id="labelConsent" text="Consentimento" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                              <CheckBox fx:id="checkBoxConsent" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-                           </children>
-                        </GridPane>
-                        <Button fx:id="buttonAdd" layoutX="294.0" layoutY="312.0" mnemonicParsing="false" text="Adicionar" />
-                        <Label fx:id="labelInfo" layoutX="178.0" layoutY="8.0" text="Preencha os dados do Paciente" textAlignment="CENTER">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="tabResults" text="Results">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
-      </TabPane>
+      <Label fx:id="labelInfo" text="Preencha os dados do Paciente" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <GridPane alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="153.3333282470703" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="135.0" minWidth="0.0" prefWidth="119.66667175292969" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="237.0" minWidth="0.0" prefWidth="208.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="87.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="labelName" alignment="CENTER" text="Nome" />
+            <TextField fx:id="textFieldName" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" />
+            <Label fx:id="labelAge" text="Idade" GridPane.rowIndex="1" />
+            <Label fx:id="labelOMS" text="Identificador OMS" GridPane.rowIndex="5" />
+            <TextField fx:id="textFieldAge" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldOMS" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="labelCarcinomaEspinocelular" text="Carcinoma Espinocelular" GridPane.rowIndex="6" />
+            <Label fx:id="labelCarcinomaIndiferenciado" text="Carcinoma Indiferenciado" GridPane.rowIndex="7" />
+            <Label fx:id="labelAdenoSiewertI" text="Adenocarcinoma (Siewert I)" GridPane.rowIndex="8" />
+            <Label fx:id="labelAdenoSiewertII" text="Adenocarcinoma (Siewert II)" GridPane.rowIndex="9" />
+            <Label fx:id="labelGender" text="Género" GridPane.rowIndex="2" />
+            <Label fx:id="labelLactant" text="Lactante" GridPane.rowIndex="3" />
+            <CheckBox fx:id="checkBoxLactant" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="labelPreviousRadiotherapy" prefHeight="17.0" prefWidth="152.0" text="Radioterapia Torácica Prévia" GridPane.columnIndex="2" />
+            <CheckBox fx:id="checkBoxPreviousRadiotherapy" mnemonicParsing="false" GridPane.columnIndex="3" />
+            <HBox fx:id="hBoxGender" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <RadioButton fx:id="radioMale" mnemonicParsing="false" text="M" />
+                  <RadioButton fx:id="radioFemale" mnemonicParsing="false" text="F" />
+               </children>
+            </HBox>
+            <Label fx:id="labelPregnant" text="Gravidez" GridPane.rowIndex="4" />
+            <CheckBox fx:id="checkBoxPregnant" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <RadioButton fx:id="radioCarcinomaEspinocelular" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <RadioButton fx:id="radioCarcinomaIndiferenciado" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <RadioButton fx:id="radioAdenoSiewertI" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <RadioButton fx:id="radioAdenoSiewertII" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label fx:id="labelCancerStage" text="Estágio do Cancro" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldCancerStage" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label fx:id="labelBordaSup" text="Borda Superior Tumor" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldBordaSup" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="labelNeutro" text="Contagem Neutrófilos" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label fx:id="labelPlaquetas" text="Contagem Plaquetas" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label fx:id="labelBili" text="Contagem Biliburrina" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="textFieldNeutro" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField fx:id="textFieldPlaquetas" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="textFieldBili" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Label fx:id="labelCreat" text="Contagem Creatinina" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="textFieldCreat" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Label fx:id="labelFuncaoPulm" text="Função Pulmonar (L)" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <TextField fx:id="textFieldFuncaoPulm" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label fx:id="labelInfection" text="Infeção Ativa" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <CheckBox fx:id="checkBoxInfection" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Label fx:id="labelConsent" text="Consentimento" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <CheckBox fx:id="checkBoxConsent" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+         </children>
+      </GridPane>
+      <Button fx:id="buttonAdd" mnemonicParsing="false" text="Adicionar" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
+         <children>
+            <Label alignment="CENTER" text="Resultado:" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelResults" text="A aguardar..." />
+         </children>
+      </HBox>
   </children>
 </VBox>
