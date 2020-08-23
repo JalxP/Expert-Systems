@@ -8,7 +8,7 @@ rule "Idade"
 		$p: Patient(accepted, age < 18);
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " é menor de idade.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível - menor de idade.");
 end
 
 rule "Indicador OMS"
@@ -17,7 +17,7 @@ rule "Indicador OMS"
 		$mc: MedicalChart(patientID == $p.getPatientID(), OMSIndicator != 0 && OMSIndicator != 1);
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não tem o indicador de desempenho requerido.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o indicador de desempenho requerido.");
 end
 
 rule "Diagnóstico"
@@ -26,7 +26,7 @@ rule "Diagnóstico"
 		$mc: MedicalChart(patientID == $p.getPatientID(), !carcinomaE, !carcinomaInd, !adenocarcinomaI, !adenocarcinomaII);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não tem o diagnóstico requerido (Carcinomas, Adenocarcinomas (I ou II).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o diagnóstico requerido (Carcinomas, Adenocarcinomas (I ou II).");
 end
 
 rule "Doença Clinica"
@@ -35,7 +35,7 @@ rule "Doença Clinica"
 		$mc: MedicalChart(patientID == $p.getPatientID(), cancerStage != 2, cancerStage != 3);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não tem uma doença clínica num dos estágios requeridos (II ou III).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma doença clínica num dos estágios requeridos (II ou III).");
 end
 
 rule "Distância do Tumor"
@@ -44,7 +44,7 @@ rule "Distância do Tumor"
 		$mc: MedicalChart(patientID == $p.getPatientID(), distanceToUpperBorder < 3);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não tem uma distância entre a borda superior do tumor abaixo do esfincter superior do esófago requerida (pelo menos 3cm).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma distância entre a borda superior do tumor abaixo do esfincter superior do esófago requerida (pelo menos 3cm).");
 end
 
 rule "Consentimento Informado"
@@ -52,7 +52,7 @@ rule "Consentimento Informado"
 		$p: Patient(accepted, !consent);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não tem um termo de consentimento informado.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem um termo de consentimento informado.");
 end
 
 rule "Mulheres Grávidas ou Lactantes"
@@ -60,7 +60,7 @@ rule "Mulheres Grávidas ou Lactantes"
 		$p: Patient(accepted, pregnant || lactant);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " tem uma gravidez a decorrer ou está lactante.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  tem uma gravidez a decorrer ou está lactante.");
 end
 
 rule "Radioterapia Prévia"
@@ -69,5 +69,5 @@ rule "Radioterapia Prévia"
 		$mc: MedicalChart(patientID == $p.getPatientID(), previousRadiotherapy);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " realizou radioterapia torácica previamente.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  realizou radioterapia torácica previamente.");
 end
