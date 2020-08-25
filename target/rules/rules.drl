@@ -71,3 +71,64 @@ rule "Radioterapia Prévia"
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  realizou radioterapia torácica previamente.");
 end
+
+rule "Infeção Ativa"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), activeInfection);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  infeção ativa.");
+end
+
+rule "Neutrófilos"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), neutrocytesCount < 1.5);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de neutrófilos reduzida.");
+end
+
+rule "Plaquetas"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), plateletsCount < 100);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de plaquetas reduzida.");
+end
+
+rule "Bilirrubina Total"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), bilirubinCount > 1.5);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  concentração sérica de bilirrubina elevada.");
+end
+
+rule "Creatinina"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), creatinineCount > 120);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  creatinina elevada.");
+end
+
+rule "Volume Pulmonar"
+	when
+		$p: Patient(accepted);
+		$mc: MedicalChart(patientID == $p.getPatientID(), pulmonarVolume < 1.5);	
+	then
+		$p.setAccepted(false);
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  volume pulmonar reduzido.");
+end
+
+rule "Elegível"
+	when
+		$p: Patient(accepted);	
+	then
+		$p.setResults("O paciente " + $p.getName() + " é elegível.");
+end
