@@ -19,13 +19,18 @@ public class MedicalChart {
 	private float neutrocytesCount;
 	private float plateletsCount;
 	private float bilirubinCount;
-	private float creatinineCount;;
+	private float creatinineCount;
+	
+	/* Detected Problems */
+	private boolean respiratoryTreeAffected;
+	private boolean endoscopicLesions;
 	
 	
 	public MedicalChart(int patientID, int oMSIndicator, boolean carcinomaE, boolean carcinomaInd,
 			boolean adenocarcinomaI, boolean adenocarcinomaII, int cancerStage, boolean previousRadiotherapy,
 			float distanceToUpperBorder, float pulmonarVolume, boolean activeInfection, float neutrocytesCount,
-			float plateletsCount, float bilirubinCount, float creatinineCount) {
+			float plateletsCount, float bilirubinCount, float creatinineCount,
+			boolean respiratoryTreeAffected, boolean endoscopicLesions) {
 		super();
 		this.patientID = patientID;
 		OMSIndicator = oMSIndicator;
@@ -42,6 +47,8 @@ public class MedicalChart {
 		this.plateletsCount = plateletsCount;
 		this.bilirubinCount = bilirubinCount;
 		this.creatinineCount = creatinineCount;
+		this.respiratoryTreeAffected = respiratoryTreeAffected;
+		this.endoscopicLesions = endoscopicLesions;
 	}
 
 
@@ -192,5 +199,25 @@ public class MedicalChart {
 
 	public void setCreatinineCount(float creatinineCount) {
 		this.creatinineCount = creatinineCount;
+	}
+
+
+	public boolean isRespiratoryTreeAffected() {
+		return respiratoryTreeAffected;
+	}
+
+
+	public void setRespiratoryTreeAffected(boolean respiratoryTreeAffected) {
+		this.respiratoryTreeAffected = respiratoryTreeAffected;
+	}
+
+
+	public boolean isEndoscopicLesions() {
+		return endoscopicLesions;
+	}
+
+
+	public void setEndoscopicLesions(boolean endoscopicLesions) {
+		this.endoscopicLesions = endoscopicLesions;
 	}
 }

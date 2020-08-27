@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="558.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="720.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
       <Label fx:id="labelInfo" alignment="CENTER" prefHeight="30.0" prefWidth="639.0" text="Preencha os dados do Paciente" textAlignment="CENTER">
          <font>
@@ -23,13 +23,14 @@
       <GridPane alignment="TOP_CENTER" focusTraversable="true" hgap="10.0" nodeOrientation="LEFT_TO_RIGHT" vgap="10.0">
         <columnConstraints>
           <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="171.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="146.0" minWidth="0.0" prefWidth="130.0" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="237.0" minWidth="0.0" prefWidth="159.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="110.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="158.0" minWidth="0.0" prefWidth="151.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="305.0" minWidth="0.0" prefWidth="187.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="152.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -80,7 +81,7 @@
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <CheckBox fx:id="checkBoxLactant" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="labelPreviousRadiotherapy" prefHeight="17.0" prefWidth="152.0" text="Radioterapia Torácica Prévia" GridPane.columnIndex="2">
+            <Label fx:id="labelPreviousRadiotherapy" prefHeight="17.0" prefWidth="167.0" text="Radioterapia Torácica Prévia" textOverrun="CLIP" GridPane.columnIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
@@ -151,20 +152,32 @@
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <CheckBox fx:id="checkBoxConsent" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Label text="Lesões Endoscópicas" GridPane.rowIndex="10">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Arvore Respiratória Afetada" GridPane.columnIndex="2" GridPane.rowIndex="10">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="checkBoxEndoscopicLesions" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <CheckBox fx:id="checkBoxRespiratoryTree" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="10" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </GridPane>
       <Button fx:id="buttonAdd" mnemonicParsing="false" text="Adicionar" />
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0" spacing="20.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="520.0" spacing="20.0">
          <children>
             <Label alignment="CENTER" text="Resultado:" textAlignment="CENTER" textOverrun="CLIP">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="labelResults" text="A aguardar dados de paciente..." textOverrun="CLIP" />
+            <Label fx:id="labelResults" prefHeight="49.0" prefWidth="555.0" text="A aguardar dados de paciente..." textOverrun="CLIP" />
          </children>
          <opaqueInsets>
             <Insets />

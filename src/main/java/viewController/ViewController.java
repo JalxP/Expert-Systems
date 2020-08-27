@@ -67,6 +67,10 @@ public class ViewController implements Initializable  {
 	private CheckBox checkBoxPreviousRadiotherapy;
 	@FXML
 	private CheckBox checkBoxInfection;
+	@FXML
+	private CheckBox checkBoxEndoscopicLesions;
+	@FXML
+	private CheckBox checkBoxRespiratoryTree;
 	
 	/* RadioButtons */
 	@FXML
@@ -196,13 +200,15 @@ public class ViewController implements Initializable  {
 			float creatCount = Float.parseFloat(textFieldCreat.getText());
 			float pulmonaryFunction = Float.parseFloat(textFieldFuncaoPulm.getText());
 			boolean activeInfection = checkBoxInfection.isSelected();
+			boolean respiratoryTreeAffected = checkBoxRespiratoryTree.isSelected();
+			boolean endoscopicLesions = checkBoxEndoscopicLesions.isSelected();
+			
 			
 			Patient p = new Patient(name, age, gender, lactant, pregnant, consent);
 			MedicalChart m = new MedicalChart(p.getPatientID(), indicatorOMS, carciEspino, carciIndif, adenoI, adenoII, cancerStage, previousRadio,
-					bordaSup, pulmonaryFunction, activeInfection, neutroCount, plaquetasCount, biliCount, creatCount);
+					bordaSup, pulmonaryFunction, activeInfection, neutroCount, plaquetasCount, biliCount, creatCount, respiratoryTreeAffected, endoscopicLesions);
 			
 			
-			// labelResults.textProperty().bind(Bindings.convert(p.getResultsProperty()));
 			p.getResultsProperty().addListener(new ChangeListener<String>() {
 
 	            @Override

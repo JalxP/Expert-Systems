@@ -97,7 +97,7 @@ public class Patient {
 	}
 
 	public String getResults() {
-		return results.getName();
+		return results.get();
 	}
 	
 	public void setResults(String results) {
