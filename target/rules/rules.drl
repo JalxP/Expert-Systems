@@ -38,7 +38,7 @@ rule "Doença Clinica"
 		$mc: MedicalChart(patientID == $p.getPatientID(), cancerStage != 2, cancerStage != 3);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma doença clínica num dos estágios requeridos (II ou III).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma doença clínica num	dos estágios requeridos (II ou III).");
 		update($p);
 end
 
