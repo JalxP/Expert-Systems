@@ -122,16 +122,14 @@ public class ViewController implements Initializable  {
 				textFieldPlaquetas, textFieldBili, textFieldCreat, textFieldFuncaoPulm));
 		
 		/* Prompts */
-		textFieldName.setPromptText("Nome");
-		textFieldAge.setPromptText("Idade");
-		textFieldOMS.setPromptText("Indicador OMS");
-		textFieldCancerStage.setPromptText("Estágio do Cancro");
-		textFieldBordaSup.setPromptText("Borda Superior do Tumor");
-		textFieldNeutro.setPromptText("Contagem de Neutrófilos");
-		textFieldPlaquetas.setPromptText("Contagem de Plaquetas");
-		textFieldBili.setPromptText("Contagem de Bilirrubina");
-		textFieldCreat.setPromptText("Contagem de Creatinina");
-		textFieldFuncaoPulm.setPromptText("Função Pulmonar (em L)");
+		textFieldOMS.setPromptText("0 — 5");
+		textFieldCancerStage.setPromptText("1 — 4");
+		textFieldBordaSup.setPromptText("cm");
+		textFieldNeutro.setPromptText("* 10^9 / L");
+		textFieldPlaquetas.setPromptText("* 10^9 / L");
+		textFieldBili.setPromptText("* LSN");
+		textFieldCreat.setPromptText("mcmol / L");
+		textFieldFuncaoPulm.setPromptText("L");
 		
 		
 		setupListeners();

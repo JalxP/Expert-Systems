@@ -15,7 +15,7 @@ end
 rule "Indicador OMS"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), OMSIndicator != 0 && OMSIndicator != 1);
+		$mc: MedicalChart(patientID == $p.getPatientID(), whoStatus != 0 && whoStatus != 1);
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o indicador de desempenho requerido.");
@@ -25,7 +25,7 @@ end
 rule "Diagnóstico"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), !carcinomaE, !carcinomaInd, !adenocarcinomaI, !adenocarcinomaII);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), !squamousCellCarcinoma, !undifferentiatedCarcinoma, !adenocarcinomaI, !adenocarcinomaII);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o diagnóstico requerido (Carcinomas, Adenocarcinomas (I ou II).");
@@ -93,7 +93,7 @@ end
 rule "Neutrófilos"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), neutrocytesCount < 1.5);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), neutrophils < 1.5);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de neutrófilos reduzida.");
@@ -103,7 +103,7 @@ end
 rule "Plaquetas"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), plateletsCount < 100);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), platelets < 100);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de plaquetas reduzida.");
@@ -113,7 +113,7 @@ end
 rule "Bilirrubina Total"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), bilirubinCount > 1.5);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), bilirubin > 1.5);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  concentração sérica de bilirrubina elevada.");
@@ -123,7 +123,7 @@ end
 rule "Creatinina"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), creatinineCount > 120);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), creatinine > 120);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  creatinina elevada.");
@@ -133,7 +133,7 @@ end
 rule "Volume Pulmonar"
 	when
 		$p: Patient(accepted);
-		$mc: MedicalChart(patientID == $p.getPatientID(), pulmonarVolume < 1.5);	
+		$mc: MedicalChart(patientID == $p.getPatientID(), pulmonaryFunction < 1.5);	
 	then
 		$p.setAccepted(false);
 		$p.setResults("O paciente " + $p.getName() + " não é elegível -  volume pulmonar reduzido.");

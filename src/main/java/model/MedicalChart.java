@@ -4,22 +4,22 @@ package model;
 public class MedicalChart {
 	private int patientID;
 	
-	private int OMSIndicator;
-	private boolean carcinomaE;
-	private boolean carcinomaInd;
+	private int whoStatus;
+	private boolean squamousCellCarcinoma;
+	private boolean undifferentiatedCarcinoma;
 	private boolean adenocarcinomaI;
 	private boolean adenocarcinomaII;
 	private int cancerStage;
 	private boolean previousRadiotherapy;
 	private float distanceToUpperBorder;
-	private float pulmonarVolume;
+	private float pulmonaryFunction;
 	private boolean activeInfection;
 	
-	/* Blood */
-	private float neutrocytesCount;
-	private float plateletsCount;
-	private float bilirubinCount;
-	private float creatinineCount;
+	/* Blood */	
+	private float neutrophils;
+	private float platelets;
+	private float bilirubin;
+	private float creatinine;
 	
 	/* Detected Problems */
 	private boolean respiratoryTreeAffected;
@@ -33,20 +33,20 @@ public class MedicalChart {
 			boolean respiratoryTreeAffected, boolean endoscopicLesions) {
 		super();
 		this.patientID = patientID;
-		OMSIndicator = oMSIndicator;
-		this.carcinomaE = carcinomaE;
-		this.carcinomaInd = carcinomaInd;
+		whoStatus = oMSIndicator;
+		this.squamousCellCarcinoma = carcinomaE;
+		this.undifferentiatedCarcinoma = carcinomaInd;
 		this.adenocarcinomaI = adenocarcinomaI;
 		this.adenocarcinomaII = adenocarcinomaII;
 		this.cancerStage = cancerStage;
 		this.previousRadiotherapy = previousRadiotherapy;
 		this.distanceToUpperBorder = distanceToUpperBorder;
-		this.pulmonarVolume = pulmonarVolume;
+		this.pulmonaryFunction = pulmonarVolume;
 		this.activeInfection = activeInfection;
-		this.neutrocytesCount = neutrocytesCount;
-		this.plateletsCount = plateletsCount;
-		this.bilirubinCount = bilirubinCount;
-		this.creatinineCount = creatinineCount;
+		this.neutrophils = neutrocytesCount;
+		this.platelets = plateletsCount;
+		this.bilirubin = bilirubinCount;
+		this.creatinine = creatinineCount;
 		this.respiratoryTreeAffected = respiratoryTreeAffected;
 		this.endoscopicLesions = endoscopicLesions;
 	}
@@ -62,33 +62,33 @@ public class MedicalChart {
 	}
 
 
-	public int getOMSIndicator() {
-		return OMSIndicator;
+	public int getWhoStatus() {
+		return whoStatus;
 	}
 
 
-	public void setOMSIndicator(int oMSIndicator) {
-		OMSIndicator = oMSIndicator;
+	public void setWhoStatus(int whoStatus) {
+		this.whoStatus = whoStatus;
 	}
 
 
-	public boolean isCarcinomaE() {
-		return carcinomaE;
+	public boolean isSquamousCellCarcinoma() {
+		return squamousCellCarcinoma;
 	}
 
 
-	public void setCarcinomaE(boolean carcinomaE) {
-		this.carcinomaE = carcinomaE;
+	public void setSquamousCellCarcinoma(boolean squamousCellCarcinoma) {
+		this.squamousCellCarcinoma = squamousCellCarcinoma;
 	}
 
 
-	public boolean isCarcinomaInd() {
-		return carcinomaInd;
+	public boolean isUndifferentiatedCarcinoma() {
+		return undifferentiatedCarcinoma;
 	}
 
 
-	public void setCarcinomaInd(boolean carcinomaInd) {
-		this.carcinomaInd = carcinomaInd;
+	public void setUndifferentiatedCarcinoma(boolean undifferentiatedCarcinoma) {
+		this.undifferentiatedCarcinoma = undifferentiatedCarcinoma;
 	}
 
 
@@ -142,13 +142,13 @@ public class MedicalChart {
 	}
 
 
-	public float getPulmonarVolume() {
-		return pulmonarVolume;
+	public float getPulmonaryFunction() {
+		return pulmonaryFunction;
 	}
 
 
-	public void setPulmonarVolume(float pulmonarVolume) {
-		this.pulmonarVolume = pulmonarVolume;
+	public void setPulmonaryFunction(float pulmonaryFunction) {
+		this.pulmonaryFunction = pulmonaryFunction;
 	}
 
 
@@ -162,43 +162,43 @@ public class MedicalChart {
 	}
 
 
-	public float getNeutrocytesCount() {
-		return neutrocytesCount;
+	public float getNeutrophils() {
+		return neutrophils;
 	}
 
 
-	public void setNeutrocytesCount(float neutrocytesCount) {
-		this.neutrocytesCount = neutrocytesCount;
+	public void setNeutrophils(float neutrophils) {
+		this.neutrophils = neutrophils;
 	}
 
 
-	public float getPlateletsCount() {
-		return plateletsCount;
+	public float getPlatelets() {
+		return platelets;
 	}
 
 
-	public void setPlateletsCount(float plateletsCount) {
-		this.plateletsCount = plateletsCount;
+	public void setPlatelets(float platelets) {
+		this.platelets = platelets;
 	}
 
 
-	public float getBilirubinCount() {
-		return bilirubinCount;
+	public float getBilirubin() {
+		return bilirubin;
 	}
 
 
-	public void setBilirubinCount(float bilirubinCount) {
-		this.bilirubinCount = bilirubinCount;
+	public void setBilirubin(float bilirubin) {
+		this.bilirubin = bilirubin;
 	}
 
 
-	public float getCreatinineCount() {
-		return creatinineCount;
+	public float getCreatinine() {
+		return creatinine;
 	}
 
 
-	public void setCreatinineCount(float creatinineCount) {
-		this.creatinineCount = creatinineCount;
+	public void setCreatinine(float creatinine) {
+		this.creatinine = creatinine;
 	}
 
 
@@ -220,4 +220,6 @@ public class MedicalChart {
 	public void setEndoscopicLesions(boolean endoscopicLesions) {
 		this.endoscopicLesions = endoscopicLesions;
 	}
+
+	
 }

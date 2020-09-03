@@ -50,7 +50,7 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label fx:id="labelOMS" text="Identificador OMS" GridPane.rowIndex="5">
+            <Label fx:id="labelOMS" text="Indicador Desempenho OMS" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
@@ -107,37 +107,37 @@
             <RadioButton fx:id="radioCarcinomaIndiferenciado" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <RadioButton fx:id="radioAdenoSiewertI" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
             <RadioButton fx:id="radioAdenoSiewertII" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label fx:id="labelCancerStage" text="Estágio do Cancro" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="labelCancerStage" text="Estadio do Cancro" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <TextField fx:id="textFieldCancerStage" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label fx:id="labelBordaSup" text="Borda Superior Tumor" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label fx:id="labelBordaSup" text="Borda Superior do Tumor" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <TextField fx:id="textFieldBordaSup" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label fx:id="labelNeutro" text="Contagem Neutrófilos" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label fx:id="labelNeutro" text="Neutrófilos" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label fx:id="labelPlaquetas" text="Contagem Plaquetas" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label fx:id="labelPlaquetas" text="Plaquetas" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label fx:id="labelBili" text="Contagem Biliburrina" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label fx:id="labelBili" text="Biliburrina Total" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <TextField fx:id="textFieldNeutro" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <TextField fx:id="textFieldPlaquetas" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <TextField fx:id="textFieldBili" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="labelCreat" text="Contagem Creatinina" GridPane.columnIndex="2" GridPane.rowIndex="6">
+            <Label fx:id="labelCreat" text="Creatinina" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <TextField fx:id="textFieldCreat" style="-fx-border-color: #000000; -fx-border-radius: 3;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Label fx:id="labelFuncaoPulm" text="Função Pulmonar (L)" GridPane.columnIndex="2" GridPane.rowIndex="7">
+            <Label fx:id="labelFuncaoPulm" text="Função Pulmonar (FEV1)" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
