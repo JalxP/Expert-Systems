@@ -8,7 +8,7 @@ rule "Idade"
 		$p: Patient(accepted, age < 18);
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível - menor de idade.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Menor de idade.");
 		update($p);
 end
 
@@ -18,7 +18,7 @@ rule "Indicador OMS"
 		$mc: MedicalChart(patientID == $p.getPatientID(), whoStatus != 0 && whoStatus != 1);
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o indicador de desempenho requerido.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Não tem o indicador de desempenho da OMS requerido.");
 		update($p);
 end
 
@@ -28,7 +28,7 @@ rule "Diagnóstico"
 		$mc: MedicalChart(patientID == $p.getPatientID(), !squamousCellCarcinoma, !undifferentiatedCarcinoma, !adenocarcinomaI, !adenocarcinomaII);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem o diagnóstico requerido (Carcinomas, Adenocarcinomas (I ou II).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Não tem o diagnóstico requerido (Carcinomas, Adenocarcinoma (Siewert I ou II).");
 		update($p);
 end
 
@@ -38,7 +38,7 @@ rule "Doença Clinica"
 		$mc: MedicalChart(patientID == $p.getPatientID(), cancerStage != 2, cancerStage != 3);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma doença clínica num	dos estágios requeridos (II ou III).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Não tem uma doença num dos estadios requeridos (II ou III).");
 		update($p);
 end
 
@@ -48,7 +48,7 @@ rule "Distância do Tumor"
 		$mc: MedicalChart(patientID == $p.getPatientID(), distanceToUpperBorder < 3);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem uma distância entre a borda superior\ndo tumor abaixo do esfincter superior do esófago requerida (pelo menos 3cm).");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Não tem uma distância entre a borda superior\ndo tumor abaixo do esfincter superior do esófago requerida (pelo menos 3 cm).");
 		update($p);
 end
 
@@ -57,7 +57,7 @@ rule "Consentimento Informado"
 		$p: Patient(accepted, !consent);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  não tem um termo de consentimento informado.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Não tem um termo de consentimento informado.");
 		update($p);
 end
 
@@ -66,7 +66,7 @@ rule "Mulheres Grávidas ou Lactantes"
 		$p: Patient(accepted, pregnant || lactant);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  tem uma gravidez a decorrer ou está lactante.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Tem uma gravidez a decorrer ou está lactante.");
 		update($p);
 end
 
@@ -76,7 +76,7 @@ rule "Radioterapia Prévia"
 		$mc: MedicalChart(patientID == $p.getPatientID(), previousRadiotherapy);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  realizou radioterapia torácica previamente.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Realizou uma radioterapia torácica previamente.");
 		update($p);
 end
 
@@ -86,7 +86,7 @@ rule "Infeção Ativa"
 		$mc: MedicalChart(patientID == $p.getPatientID(), activeInfection);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  infeção ativa.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Tem uma infeção ativa.");
 		update($p);
 end
 
@@ -96,7 +96,7 @@ rule "Neutrófilos"
 		$mc: MedicalChart(patientID == $p.getPatientID(), neutrophils < 1.5);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de neutrófilos reduzida.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Contagem de neutrófilos reduzida.");
 		update($p);
 end
 
@@ -106,7 +106,7 @@ rule "Plaquetas"
 		$mc: MedicalChart(patientID == $p.getPatientID(), platelets < 100);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  contagem de plaquetas reduzida.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Contagem de plaquetas reduzida.");
 		update($p);
 end
 
@@ -116,7 +116,7 @@ rule "Bilirrubina Total"
 		$mc: MedicalChart(patientID == $p.getPatientID(), bilirubin > 1.5);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  concentração sérica de bilirrubina elevada.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Concentração sérica de bilirrubina elevada.");
 		update($p);
 end
 
@@ -126,7 +126,7 @@ rule "Creatinina"
 		$mc: MedicalChart(patientID == $p.getPatientID(), creatinine > 120);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  creatinina elevada.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Creatinina elevada.");
 		update($p);
 end
 
@@ -136,7 +136,7 @@ rule "Volume Pulmonar"
 		$mc: MedicalChart(patientID == $p.getPatientID(), pulmonaryFunction < 1.5);	
 	then
 		$p.setAccepted(false);
-		$p.setResults("O paciente " + $p.getName() + " não é elegível -  volume pulmonar reduzido.");
+		$p.setResults("O paciente " + $p.getName() + " não é elegível – Volume pulmonar reduzido.");
 		update($p);
 end
 
@@ -155,7 +155,7 @@ rule "Efetuar Endoscopia"
 		$mc: MedicalChart(patientID == $p.getPatientID(), endoscopicLesions);
 	then
 		String s = $p.getResults();
-		s += "\nTerá de efetuar uma endoscopia seis semanas após o início do tratamento.";
+		s += "\nTerá de efetuar uma endoscopia 6 semanas após o início do tratamento.";
 		$p.setResults(s);
 end
 

@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.paint.Color;
 import model.Dados;
 import model.MedicalChart;
 import model.Patient;
@@ -29,6 +30,8 @@ public class ViewController implements Initializable  {
 	private Label labelInfo;
 	@FXML
 	private Label labelResults;
+	@FXML
+	private Label labelInvalidReason;
 
 	/* Buttons */
 	@FXML
@@ -222,12 +225,14 @@ public class ViewController implements Initializable  {
 	private boolean checkUserInput() {
 		
 		boolean invalid = false;
+		String invalidReason = "";
 		
 		String name = textFieldName.getText();
 		if (name.isEmpty() || name.matches(".*\\d+.*")) {
 			// INVALID NAME
-			textFieldName.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldName.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "O nome contém caracteres inválidos.";
 		}
 		else {
 			textFieldName.setStyle("-fx-text-box-border: #000000; -fx-border-radius: 3px");
@@ -236,7 +241,7 @@ public class ViewController implements Initializable  {
 		int age;
 		try {
 			age = Integer.parseInt(textFieldAge.getText());
-			if (age < 0) {
+			if (age < 0 || age > 100) {
 				throw new NumberFormatException();
 			}
 			else {
@@ -244,8 +249,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Age
-			textFieldAge.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldAge.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico inteiro válido";
 		}
 		
 		int indicatorOMS;
@@ -257,8 +263,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid OMS indicator
-			textFieldOMS.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldOMS.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico dentro do intervalo requerido.";
 		}
 
 		int cancerStage;
@@ -270,8 +277,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid cancer stage
-			textFieldCancerStage.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldCancerStage.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico dentro do intervalo requerido.";
 		}
 		
 		float bordaSup;
@@ -283,8 +291,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Superior Border
-			textFieldBordaSup.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldBordaSup.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		float neutroCount;
@@ -296,8 +305,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Neutro Count
-			textFieldNeutro.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldNeutro.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		float plaquetasCount;
@@ -309,8 +319,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Plaquetas Count
-			textFieldPlaquetas.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldPlaquetas.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		float biliCount;
@@ -322,8 +333,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Bili Count
-			textFieldBili.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldBili.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		float creatCount;
@@ -335,8 +347,9 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Creat Count
-			textFieldCreat.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldCreat.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		float pulmonaryFunction;
@@ -348,14 +361,20 @@ public class ViewController implements Initializable  {
 			}
 		} catch (NumberFormatException e) {
 			// Invalid Superior Border
-			textFieldFuncaoPulm.setStyle("-fx-text-box-border: #FF0000;");
+			textFieldFuncaoPulm.setStyle("-fx-background-color: #ffcccc; -fx-border-color: #FF0000; -fx-border-radius: 3px");
 			invalid = true;
+			invalidReason = "Deve inserir um valor numérico válido.";
 		}
 		
 		
-		
+		labelInvalidReason.setText(invalidReason);
 		if (invalid) {
 			labelInfo.setText("Verifique os Campos Assinalados");
+			labelInfo.setTextFill(Color.RED);
+			labelResults.setText("A aguardar dados de paciente...");
+		} else {
+			labelInfo.setText("Preencha os dados do Paciente");
+			labelInfo.setTextFill(Color.BLACK);
 		}
 		return !invalid;
 	}
